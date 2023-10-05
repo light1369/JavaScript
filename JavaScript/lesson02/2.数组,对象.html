@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        'use strict';
+
+        //-------数组
+        let arr = [1, 2, 3, 4, 5, 6];
+        //可以重新定义数组的长度，超过原长度，未定义的为undefined,过短元素会丢失
+        arr.length = 10;
+        //通过值得到下标
+        arr.indexOf(2);
+        //截取arr的一部分，返回一个新数组，类似string 中的substring
+        arr.slice(3, 5);
+        //压入到尾部
+        arr.push(44, 55);
+        //弹出尾部的一个
+        arr.pop();
+        //押入到头部
+        arr.unshift('a', 'b');
+        //弹出头部的一个元素
+        arr.shift();
+        //排序,正序
+        arr.sort();
+        //排序，反转
+        arr.reverse();
+        //拼接数组,将原数组与新数组拼接，返回一个新数组
+        arr.concat(['1', 2, '3']);
+        //打印拼接数组，使用特定的字符串连接:'1-2-3'
+        arr.join('-');
+        //多维数组
+        arr = [[1, 2], [3, 4], ['5', '6']];
+        arr[1][2];
+
+
+        //-------对象，javascript中所有的键都是字符串
+        let person = {
+            name: 'abc',
+            age: 3,
+            sex: 'man'
+        };
+        //给对象属性负责
+        person.age=6;
+        //不存在的属性不会报错，undefined
+        person.hah;
+        //动态地删除属性
+        delete person.name;
+        //动态添加
+        person.haha='haha';
+        //判读属性是否在对象中,布尔值
+        'age' in person
+        //判读属性是否是对象自身拥有的
+        person.hasOwnProperty('toString');
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

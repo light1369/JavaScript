@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+</head>
+<body>
+<!--
+onsubmit=绑定一个提交检测的函数，true,false
+可以在表单中设置提交触发事件cherk()-->
+<form action="https://www.baidu.com/" method="post" onsubmit="return cherk()">
+    <p>
+        <span>用户名：</span><input type="text" id="username" name="userName">
+    </p>
+    <p>
+        <span>密码：</span><input type="text" id="input_password">
+    </p>
+    <input type="hidden" id="md5-password" name="passWord">
+    <p>
+        <span>性别：</span>
+        <input type="radio" id="boy" name="sex" value="nan"> 男
+        <input type="radio" id="girl" name="sex" value="woman"> 女
+    </p>
+    <!--    <input type="submit">-->
+    <!--    <button type="submit" onclick="cherk()">提交</button>-->
+    <button type="submit">提交</button>
+</form>
+
+<script>
+    let username = document.getElementById('username');
+    let radio_boy = document.getElementById('boy');
+    let radio_girl = document.getElementById('girl');
+
+    //得到输入框的值
+    console.log(username.value)
+    //修改输入框的值
+    // username.value = '123';
+
+    //对于单选框，多选框等固定的值，radio_boy.value只能取到当前值
+    console.log(radio_boy.checked)//查看返回的结果是否为true，入股哦为true，则被选中
+    // radio_girl.checked = true;//赋值
+
+    //md5加密密码
+    function cherk() {
+        let pwd = document.getElementById('input_password');
+        let md5pwd = document.getElementById('md5-password');
+        md5pwd.value = md5(pwd.value);//引用外部srcMD5加密
+        return true;//提交
+        // return false;//不提交
+    }
+</script>
+</body>
+</html>

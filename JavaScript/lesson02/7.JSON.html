@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        /**
+         * 在JavaScript一切皆为对象，任何js支持的类型都可以用JSON来表示，
+         * 格式：
+         * * 对象用{}
+         * *数组用[]
+         * *所有键值对都用key:value
+         */
+            // JSON字符串和JS对象的转化
+        var user = {
+                name: "张三",
+                age: 3,
+                sex: '男'
+            }
+
+        //对象转为json字符串'{"name":"张三","age":3,"sex":"男"}'
+        var jsonUser = JSON.stringify(user);
+
+        //json字符串转化为对象 参数为json 字符串
+        var obj = JSON.parse('{"name":"张三","age":3,"sex":"男"}')
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <dl id="app">
+        <dt>dt</dt>
+        <dd>dd</dd>
+        <dd>dd</dd>
+    </dl>
+
+  <script>
+    // 在控制台操作
+
+    // window代表页面窗口(重要)
+    // 查看页面内高度
+    window.innerHeight;
+    //外高度
+    window.outerHeight;
+
+    //navigator封装了浏览器的信息
+    //不建议使用这些属性作为代码判断，会被修改
+    //用户信息
+    navigator.userAgent;
+    //版本信息
+    navigator.appVersion;
+
+    //屏幕尺寸
+    screen.width;
+    screen.height;
+
+    /**
+     * location (重要)当前页面
+     * / location带表当前页面的URL信息
+     *
+     */
+    //代表主机
+    host:"inedkoakiaeepjoblbiiipedngonadhn"
+    //代表跳转的url
+    href:"chrome-extension://inedkoakiaeepjoblbiiipedngonadhn/dist/index.html"
+    // location.reload();//重新加载页面
+    //设置新的地址
+    // location.assign('https://www.bilibili.com/')
+
+
+    /**
+     * document 文档信息（重点）
+     *
+     */
+    document.title//标题
+    document.title='123';
+    //获取具体的文档树节点,
+    //通过id获取
+    var dl=document.getElementById('app');
+    //获取coolie,安全起见，服务器端设置 cookie:httpOnly
+    document.cookie
+
+
+    //history代表浏览器的历史记录，页面前进后退
+    history.back();// 后退
+    history.forward()//前进
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

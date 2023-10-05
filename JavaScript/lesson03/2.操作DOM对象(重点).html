@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+         * 浏览器网页就是一个Dom树结构！
+         *      更新：更新Dom节点
+         *      遍历Dom节点，得到Dom节点
+         *      删除：删除一个Dom节点
+         *      添加：添加一个新节点
+         * 操作Dom节点前，需要先获得这个节点
+         */
+
+    </script>
+</head>
+<body>
+
+<h1 id="h"></h1>
+<div id="father">
+    <h1>标题一</h1>
+    <p id="p1"></p>
+    <p class="p2"></p>
+
+</div>
+
+<script>
+    //得到节点
+    let h1 = document.getElementsByTagName('h1');
+    let p1 = document.getElementById('p1'),
+        p2 = document.getElementsByClassName('p2');
+    let father = document.getElementById('father');
+    let childrens = father.children;//获取父节点下所有子节点
+    // father.firstChild;
+    // father.lastChild;
+
+    //操作节点
+    p1.innerText = '123';//修改文本的值
+    p1.innerHTML = '<strong>123</strong>';//可以解析HTML文本标签
+    p1.style.color = 'red';//属性使用字符串包裹
+    p1.style.fontSize = '20px';//下划线_改为驼峰命名
+
+    //删除节点
+    //删除节点步骤：先获取父节点，在通过父节点删除自己
+    let self = document.getElementById('p1');
+    let father1 = p1.parentElement;
+    father1.removeChild(self);
+    //删除多个节点时，注意children是时刻变化的
+    // father.removeChild(father.children[0]);
+    // father.removeChild(father.children[1]);
+    // father.removeChild(father.children[2]);
+
+    //插入节点
+    //假如在某个Dom节点中通过innerHTML增加一个元素，但是这个元素已存在，会覆盖原有标签，应该追加
+    //末尾插入
+    let h = document.getElementById('h');//已存在的节点
+    father.append(h);
+    //通过js 创建一个新节点
+    let newP = document.createElement('p');
+    newP.id = 'newP';
+    newP.innerText = 'Hello,word';
+    father.append(newP);
+    //创建一个标签节点,常用方式
+    let myScript = document.createElement('script');
+    myScript.setAttribute('type', 'text/javascript');
+    father.append(myScript);
+    //可以创建一个style标签
+    let myStyle = document.createElement('style');
+    myStyle.setAttribute('type', 'text/css');
+    myStyle.innerHTML = 'body{background-color:chartreuse;}';//设置标签内容
+    //为head标签的子节点body追加一个myStyle的样式
+    document.getElementsByTagName('head')[0].appendChild(myStyle);
+    //指定位置插入一个节点
+    //要包含的节点.insertBefore(newNode,targetNode);
+    father.insertBefore(h, p1);//
+
+
+</script>
+
+</body>
+</html>

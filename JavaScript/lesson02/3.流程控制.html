@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        'use strict'
+        let age = 3;
+        // if判断
+        if (age > 3) {
+            console.log('haha ');
+        } else if (age >= 3) {
+            alert('123');
+            console.log("abc");
+        }
+
+        //while循环
+        while (age < 100) {
+            age = age + 1;
+            console.log(age);
+        }
+
+        //for循环,let关键字为局部变量，超出范围不可被引用
+        for (let i = 0; i < 100; i++) {
+            console.log(i);
+        }
+
+        //forEach 5.1引入
+        let arr = [12, 33, 4, 55, 23, 53, 55]
+        arr.forEach(function (value) {
+            console.log('遍历：' + value);
+        });
+
+        //for of
+        for (var num of age) {
+            console.log(num);
+        }
+
+        //for in遍历索引
+        for (var num in age) {
+            console.log(num);
+            console.log(age[num]);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

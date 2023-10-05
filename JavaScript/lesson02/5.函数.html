@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        const PI = 3.14;//只读变量
+        // PI=123;//Uncaught TypeError: Assignment to constant variable.
+
+        // 唯一全局变量
+        var ldApp = {};
+        //自定义全局变量
+        ldApp.name = 'abc';
+        ldApp.add = function (a, b) {
+            return a + b;
+        }
+
+
+        //方法一 匿名函数
+        var abs = function (x) {
+            //手动抛出异常
+            if (typeof x != 'number') {
+                throw 'Not a Number';
+            }
+            /**
+             * arguments:将参数作为数组传递进来
+             * 是一个js免费赠送的关键字
+             */
+            for (var i = 0; i < arguments.length; i++) {
+                console.log('得到值：' + arguments[i]);
+            }
+            return x;
+        }
+
+
+        /**
+         * //函数定义   方法二
+         * ES6 引入新特性，获取除了已定义的参数之外的所有参数,以一个数组形式
+         */
+        function abc(a, b, ...rest) {
+            console.log('a=>' + a);
+            console.log('b=>' + b);
+            console.log('rest=>' + rest);
+        }
+
+
+        function aa() {
+            //允许先调用后定义
+            var x = 'x' + y;
+            console.log(x);//'xundefined'
+            var y = 'y';
+            return x;
+        }
+
+        /**
+         * 全局对象 window
+         * JavaScript实际上只有一个全局作用域，任何变量（函数也可以视为变量），
+         * 假设没有在作用范围内找到，就会向外查找，如果在全局作用域都没找到，报错：RefrenceError
+         */
+        function win() {
+            var x = '123';
+            alert(x);
+            window.alert(x);
+            var old_alert = window.alert;
+            // old_alert(x);
+
+            window.alert = function () {
+
+            };
+            //发现alert()失效了
+            window.alert(123);
+
+            //恢复
+            window.alert = old_alert;
+            window.alert(345);
+        }
+
+
+        /**
+         * ES6 let关键字，解决局部作用域冲突的问题
+         */
+        function bb() {
+            for (var i = 0; i < 10; i++) {
+                console.log('var:' + i);
+            }
+            console.log('var:' + i);
+
+            for (let j = 0; j < 10; j++) {
+                console.log('let:' + j);
+            }
+            console.log('let:' + j);//Uncaught ReferenceError: j is not defined
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

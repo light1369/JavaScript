@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    //CDN引入jQuery-->
+    <!--  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>-->
+    <script src="lib/jquery-3.7.1.js"></script>
+</head>
+<body>
+
+<!--
+引用公式：$(selector).action()
+-->
+<a href="" id="test-jquery">点击</a>
+
+<script>
+
+    //原生js选择器
+    document.getElementById('test-jquery').click(function () {
+        alert('hello,jQuery!');
+    });
+    // 使用jQuery,选择器就是css的选择器
+    $("#test-jquery").click(function () {
+        alert('hello,jQuery!');
+    });
+
+
+    // --------------------------区别------------------------------
+    //原生js，选择器少，麻烦不好记
+    //标签
+    document.getElementsByTagName('p');
+    //id
+    document.getElementById('id1');
+    //类
+    document.getElementsByClassName('class1');
+
+    //jQuery CSS中的选择器它都可以用
+    $('p').click();//标签选择器
+    $('#id1').click();//id选择器
+    $('.class1').click()//class选择器
+
+</script>
+</body>
+</html>

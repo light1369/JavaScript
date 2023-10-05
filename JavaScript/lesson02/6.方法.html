@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        //计算年纪
+        function getAge() {
+            let now = new Date().getFullYear();
+            return now - this.bitrh;
+        }
+
+        var student1 = {
+            name: '张三',
+            bitrh: '2000',
+            //方法,1
+            age: getAge
+            //方法,2
+            // age: function () {
+            //     let now = new Date().getFullYear();
+            //      今年-出生年
+            //     return now - this.bitrh;
+            // }
+        }
+
+        var student2 = {
+            name: '李四',
+            bitrh: '1990',
+            age: getAge
+        }
+
+        //属性
+        student1.name;
+        //方法，一定要带()
+        student1.age();
+        /**
+         * apply通过函数指向指定对象
+         * 通过this,指向了student2，参数为空
+         */
+        getAge.apply(student2, []);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
