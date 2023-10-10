@@ -7,13 +7,12 @@
     <script>
         'use strict';
 
-        //可换行字符串
+        //ES6模板字符串，可换行字符串
         let text = `123
-    asdf
-    `;
+                        asdf`;
         let name = 'tom';
-
-        let msg = `你好：${name}`;
+        let msg = `你好：
+                    ${name}`;
 
         console.log(
             name.length,//长度

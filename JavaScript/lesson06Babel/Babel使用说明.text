@@ -1,0 +1,64 @@
+简介：
+    ES6某些高级语法在浏览器中甚至Node.js环境中无法执行
+    Babel是广泛使用的转码器，可以将ES6代码转为ES5代码，从而在现有环境执行
+
+安装方式：
+    npm install -g babel-cli
+
+    查看是否安装成功：babel --version
+
+使用：
+    1.创建babel文件夹
+    2.初始化项目
+        npm init -y
+    3.创建文件src/example.js,并加入ES6代码：
+            //es6
+            let name = "xuexiangban";
+            const title = "广东";
+            let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            let newarr = arr.map(a => a * 2);
+            console.log(name);
+            console.log(title);
+            console.log(newarr);
+
+    4.配置.babelrc
+        Babel的配置文件是.babelrc,存放在项目的根目录下，该文件用来设置转码规格和插件，基本格式如下：
+            {
+                "presets":["es2015"],
+                "plugins":[]
+            }
+
+    5.安装转换器，在项目中安装
+        npm install --save-dev babel-preset-es2015
+
+    6.转码，将src文件中的代码转为配置文件的指定规格保存到dist文件中
+        babel src -d dist
+
+        或者：
+            # npm install --save-dev csv-loader xml-loader
+            # 转码结果写入一个文件
+            mkdir dist1
+            # --out-file 或 -o 参数指定输出文件
+            babel src/example.js --out-file dist1/compiled.js
+            #或者
+            babel src/example.js -o dist1/compiled.js
+            # 整个目录转码
+            mkdir dist2
+            # --out-dir 或 -d 参数指定输出目录babel src --out-dir dist2
+            #或者
+            babel src -d dist2
+
+    7.自定义脚本：
+        1.改写package.json
+            {
+                // ....
+                "scripts":{
+                    // ...
+                    "build": "babel src\\example.js -o dist\\compiled.js"
+                    },
+            }
+
+        2.转码的时候执行下面命令
+            mkdir dist
+            npm run build
+

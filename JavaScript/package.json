@@ -1,0 +1,15 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "一个node工程",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ld",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "redis": "^4.6.10"
+  }
+}
